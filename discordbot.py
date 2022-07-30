@@ -17,6 +17,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print('成功登入')
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="小灰"))
 
 # 收到訊息時呼叫
 @client.event
