@@ -12,8 +12,6 @@ DSTLanguage=os.environ['DST']
 
 client = discord.Client()
 
-PREFIX = ("$")
-bot = commands.Bot(command_prefix=PREFIX, description='Hi')
 
 # 起動時呼叫
 @client.event
@@ -39,10 +37,6 @@ async def on_message(message):
         if translator.detect(content).lang == SRCLanguage or SRCLanguage == '':
             remessage = translator.translate(content, dest='zh-tw').text
             await message.reply(remessage)
-async def on_ready():
-    activity = discord.Game(name="Netflix", type=3)
-    await bot.change_presence(status=discord.Status.idle, activity=activity)
-    print("Bot is ready!")
 
 # Bot起動
 client.run(TOKEN)
